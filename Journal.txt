@@ -1,1 +1,23 @@
-Day 1:
+commit #1:
+Set up the window, inspired by:
+http://www.lwjgl.org/guide
+
+commit 2:
+Will stop using # from now on cause links...
+
+To draw stuff, we need:
+Data (ie the points)
+Shaders (Else the computer doesn't know how to draw the data)
+
+We need to bind the data to pass it to the GPU and to compile and link our shaders so they are usable.
+
+To draw we need:
+To set the shader as current, make the vertexatributes(ie: this is a position, this is a color etc.)
+Maybe set some uniforms in our shader.(like passing the time etc.)
+To make the draw call.
+
+So how do we organise this? We get to decide.
+I love interfaces, I'll probably use that.
+
+I'll make a DrawingStyle interface, who handles the shaders, the data and the drawing.
+Each instance of the 

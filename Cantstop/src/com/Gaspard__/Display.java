@@ -3,8 +3,6 @@ package com.Gaspard__;
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
 
-import java.awt.image.DataBuffer;
-import java.awt.image.SampleModel;
 import java.nio.ByteBuffer;
 
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -14,16 +12,11 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.system.MemoryUtil;
 
-public class Display implements Runnable {
+public class Display{
 	private GLFWErrorCallback errorCallback;
 	private long window;
 
 	public Display() {
-		new Thread(this).start();
-	}
-
-	@Override
-	public void run() {
 		try{
 			glfwSetErrorCallback(errorCallback = errorCallbackPrint(System.err));
 			if ( glfwInit() != GL11.GL_TRUE )throw new IllegalStateException("Unable to initialize GLFW");
@@ -64,14 +57,14 @@ public class Display implements Runnable {
 	        glfwShowWindow(window);
 	        GLContext.createFromCurrent();
 	        
-	        GL11.glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+	        GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	        
 	        while ( glfwWindowShouldClose(window) == GL11.GL_FALSE ) {
 	        	
 	            GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT); // clear the framebuffer
 	 
 	            glfwSwapBuffers(window); // swap the color buffers
-	 
+	            
 	            // Poll for window events. The key callback above will only be
 	            // invoked during this call.
 	            glfwPollEvents();
